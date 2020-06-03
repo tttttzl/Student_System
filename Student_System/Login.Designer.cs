@@ -37,6 +37,7 @@
             this.Teacher = new System.Windows.Forms.RadioButton();
             this.Student = new System.Windows.Forms.RadioButton();
             this.Entry = new System.Windows.Forms.Button();
+            this.PwdView = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -51,6 +52,7 @@
             // 
             // User
             // 
+            this.User.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.User.Location = new System.Drawing.Point(347, 187);
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(200, 21);
@@ -58,6 +60,7 @@
             // 
             // Password
             // 
+            this.Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Password.Location = new System.Drawing.Point(347, 235);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(200, 21);
@@ -119,7 +122,7 @@
             // 
             // Entry
             // 
-            this.Entry.Location = new System.Drawing.Point(472, 374);
+            this.Entry.Location = new System.Drawing.Point(476, 346);
             this.Entry.Name = "Entry";
             this.Entry.Size = new System.Drawing.Size(75, 23);
             this.Entry.TabIndex = 8;
@@ -127,11 +130,23 @@
             this.Entry.UseVisualStyleBackColor = true;
             this.Entry.Click += new System.EventHandler(this.Entry_Click);
             // 
+            // PwdView
+            // 
+            this.PwdView.AutoSize = true;
+            this.PwdView.Location = new System.Drawing.Point(562, 237);
+            this.PwdView.Name = "PwdView";
+            this.PwdView.Size = new System.Drawing.Size(48, 16);
+            this.PwdView.TabIndex = 9;
+            this.PwdView.Text = "显示";
+            this.PwdView.UseVisualStyleBackColor = true;
+            this.PwdView.CheckedChanged += new System.EventHandler(this.PwdView_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 491);
+            this.Controls.Add(this.PwdView);
             this.Controls.Add(this.Entry);
             this.Controls.Add(this.Student);
             this.Controls.Add(this.Teacher);
@@ -143,7 +158,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Login";
-            this.TransparencyKey = System.Drawing.Color.White;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +174,7 @@
         private System.Windows.Forms.RadioButton Teacher;
         private System.Windows.Forms.RadioButton Student;
         private System.Windows.Forms.Button Entry;
+        private System.Windows.Forms.CheckBox PwdView;
     }
 }
 

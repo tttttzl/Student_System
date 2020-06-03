@@ -50,5 +50,13 @@ namespace Student_System
                     break;
             }
         }
+
+        private void PwdView_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PwdView.Checked)
+                Password.PasswordChar = new char();
+            else
+                Password.PasswordChar = '*';
+        }
     }
 }
