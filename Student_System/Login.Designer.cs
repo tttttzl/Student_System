@@ -57,6 +57,7 @@
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(200, 21);
             this.User.TabIndex = 1;
+            this.User.Text = "admine";
             // 
             // Password
             // 
@@ -65,6 +66,7 @@
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(200, 21);
             this.Password.TabIndex = 2;
+            this.Password.Text = "admine";
             // 
             // label2
             // 
@@ -89,6 +91,7 @@
             // Admine
             // 
             this.Admine.AutoSize = true;
+            this.Admine.Checked = true;
             this.Admine.Location = new System.Drawing.Point(347, 298);
             this.Admine.Name = "Admine";
             this.Admine.Size = new System.Drawing.Size(59, 16);
@@ -113,12 +116,10 @@
             // Student
             // 
             this.Student.AutoSize = true;
-            this.Student.Checked = true;
             this.Student.Location = new System.Drawing.Point(500, 298);
             this.Student.Name = "Student";
             this.Student.Size = new System.Drawing.Size(47, 16);
             this.Student.TabIndex = 7;
-            this.Student.TabStop = true;
             this.Student.Text = "学生";
             this.Student.UseVisualStyleBackColor = true;
             this.Student.CheckedChanged += new System.EventHandler(this.Admine_CheckedChanged);
@@ -136,11 +137,13 @@
             // PwdView
             // 
             this.PwdView.AutoSize = true;
+            this.PwdView.Checked = true;
+            this.PwdView.CheckState = System.Windows.Forms.CheckState.Checked;
             this.PwdView.Location = new System.Drawing.Point(562, 237);
             this.PwdView.Name = "PwdView";
             this.PwdView.Size = new System.Drawing.Size(48, 16);
             this.PwdView.TabIndex = 9;
-            this.PwdView.Text = "显示";
+            this.PwdView.Text = "View";
             this.PwdView.UseVisualStyleBackColor = true;
             this.PwdView.CheckedChanged += new System.EventHandler(this.PwdView_CheckedChanged);
             // 

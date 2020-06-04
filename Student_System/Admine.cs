@@ -54,7 +54,14 @@ namespace Student_System
 
         private void Dele_Click(object sender, EventArgs e)
         {
+            if ((int)MessageBox.Show("确定删除", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
+                return;
 
+            if (factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems.Count > 0)
+            {
+                if (pdt.mysql.DeleSelectData(TabControl.SelectedTab.Name,factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems[0].SubItems[1].Text))
+                    listviewoper.ListviewDeleteData(TabControl.SelectedTab.Name, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
+            }
         }
 
         private void Loading_Click(object sender, EventArgs e)
@@ -75,16 +82,21 @@ namespace Student_System
 
         private void Change_Click(object sender, EventArgs e)
         {
-
+            if ((int)MessageBox.Show("确定修改", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
+                return;
+            //if (pdt.mysql.ChangeData(TabControl.SelectedTab.Name, string.Format("update {0} set password='{1}' where user='{2}';", TabControl.SelectedTab.Name, pwd.Text, user.Text)))
+            //{
+                //listviewset.ListviewChangeData(pwd.Text, dictionary[TabControl1.SelectedTab.Name]);
+            //}
         }
 
         private void ListviewSelect(object sender, EventArgs e)
         {
             if (factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems.Count > 0)
             {
-                for (int i = 1; i < factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems.Count; i++)
+                for (int i = 1; i < factory.myTabPage.dictionary[TabControl.SelectedTab.Name].Columns.Count; i++)
                 {
-                    textboxdic[factory.myTabPage.dictionary[TabControl.SelectedTab.Name].Columns[i].ToString()].Text = factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems[0].SubItems[i].Text;
+                    textboxdic[factory.myTabPage.dictionary[TabControl.SelectedTab.Name].Columns[i].Text].Text = factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems[0].SubItems[i].Text;
                 }
             }
         }
