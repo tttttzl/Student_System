@@ -34,19 +34,22 @@ namespace Student_System
             switch (Entry_Type)
             {
                 case "AdmineUser":
-                    form = new Admine();
-                    form.Show();
                     this.Hide();
+                    form = new Admine();
+                    form.ShowDialog();
+                    this.Show();
                     break;
                 case "TeacherUser":
-                    form = new Teacher();
-                    form.Show();
                     this.Hide();
+                    form = new Teacher();
+                    form.ShowDialog();
+                    this.Show();
                     break;
                 case "StudentUser":
-                    form = new Student();
-                    form.Show();
                     this.Hide();
+                    form = new Student();
+                    form.ShowDialog();
+                    this.Show();
                     break;
             }
         }

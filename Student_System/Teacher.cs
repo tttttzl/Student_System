@@ -12,9 +12,14 @@ namespace Student_System
 {
     public partial class Teacher : Form
     {
+        TabControl TabControl;
+        ControlFactory factory;
         public Teacher()
         {
             InitializeComponent();
+            factory = new Teacher_Factory();
+            TabControl = factory.GetTab();
+            this.Controls.Add(TabControl);
         }
     }
 }

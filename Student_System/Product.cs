@@ -11,5 +11,10 @@ namespace Student_System
     /// </summary>
     class Product
     {
+        public My_Mysql mysql;
+        public Product()
+        {
+            mysql = new My_Mysql();
+        }
     }
 }

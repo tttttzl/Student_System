@@ -108,6 +108,7 @@
             this.Teacher.TabStop = true;
             this.Teacher.Text = "老师";
             this.Teacher.UseVisualStyleBackColor = true;
+            this.Teacher.CheckedChanged += new System.EventHandler(this.Admine_CheckedChanged);
             // 
             // Student
             // 
@@ -119,6 +120,7 @@
             this.Student.TabStop = true;
             this.Student.Text = "学生";
             this.Student.UseVisualStyleBackColor = true;
+            this.Student.CheckedChanged += new System.EventHandler(this.Admine_CheckedChanged);
             // 
             // Entry
             // 
