@@ -113,6 +113,7 @@
             // Student
             // 
             this.Student.AutoSize = true;
+            this.Student.Checked = true;
             this.Student.Location = new System.Drawing.Point(500, 298);
             this.Student.Name = "Student";
             this.Student.Size = new System.Drawing.Size(47, 16);

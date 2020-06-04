@@ -12,40 +12,47 @@ namespace Student_System
 {
     public partial class Login : Form
     {
-        string Entry_Type = "AdmineUser";
+        Product pdt;
+        string Entry_Type = "AdmineLogin";
         public Login()
         {
+            pdt = new Product();
             InitializeComponent();
         }
 
         private void Admine_CheckedChanged(object sender, EventArgs e)
         {
             if (Admine.Checked == true)
-                Entry_Type = "AdmineUser";
+                Entry_Type = "AdmineLogin";
             else if(Teacher.Checked == true)
-                Entry_Type = "TeacherUser";
+                Entry_Type = "TeacherLogin";
             else if (Student.Checked == true)
-                Entry_Type = "StudentUser";
+                Entry_Type = "StudentLogin";
         }
 
         private void Entry_Click(object sender, EventArgs e)
         {
             Form form;
+            if (!(pdt.mysql.Search(Entry_Type, "User", User.Text, "Password") == Password.Text))
+            {
+                MessageBox.Show("账号或者密码错误", "错误提示");
+                return;
+            }
             switch (Entry_Type)
             {
-                case "AdmineUser":
+                case "AdmineLogin":
                     this.Hide();
-                    form = new Admine();
+                    form = new Admine(this.pdt);
                     form.ShowDialog();
                     this.Show();
                     break;
-                case "TeacherUser":
+                case "TeacherLogin":
                     this.Hide();
                     form = new Teacher();
                     form.ShowDialog();
                     this.Show();
                     break;
-                case "StudentUser":
+                case "StudentLogin":
                     this.Hide();
                     form = new Student();
                     form.ShowDialog();

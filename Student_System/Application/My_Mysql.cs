@@ -81,12 +81,12 @@ namespace Student_System
 
         //搜索表指定内容
         //输入搜索的表，检索名称，需要返回的数据名称
-        public virtual string Search(string TableName, string id, string searchData)
+        public virtual string Search(string TableName,string data_name, string data, string searchData)
         {
             string resultback = null;
             try
             {
-               string cmdstr = string.Format("select * from {0} where user='{1}'", TableName, id);
+               string cmdstr = string.Format("select * from {0} where {1}='{2}'", TableName,data_name, data);
                 cmd = new MySqlCommand(cmdstr, conn);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())

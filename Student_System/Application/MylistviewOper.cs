@@ -96,7 +96,7 @@ namespace Student_System
                 }
             }
 
-            MessageBox.Show("未找到数据", "操作提示");
+            //MessageBox.Show("未找到数据", "操作提示");
         }
     }
 }
