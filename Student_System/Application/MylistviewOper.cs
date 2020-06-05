@@ -21,7 +21,7 @@ namespace Student_System
         //插入数据
         public abstract void ListviewInsertData(string[] str, ListView list);
         //修改数据
-        public abstract void ListviewChangeData(string data, ListView list);
+        public abstract void ListviewChangeData(Dictionary<string, TextBox> dic, ListView list);
         //搜索数据
         public abstract void ListviewSearchData(string data, ListView list, int index);
     }
@@ -74,11 +74,15 @@ namespace Student_System
         }
 
         //这里也要修改
-        public override void ListviewChangeData(string data, ListView list)
+        public override void ListviewChangeData(Dictionary<string,TextBox> dic, ListView list)
         {
+            int i = 1;
             if (list.SelectedItems.Count > 0)
             {
-                list.SelectedItems[0].SubItems[2].Text = data;
+                foreach(TextBox item in dic.Values)
+                {
+                    list.SelectedItems[0].SubItems[i].Text = item.Text;
+                }
             }
             else
                 return;

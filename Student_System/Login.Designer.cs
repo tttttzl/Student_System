@@ -64,6 +64,7 @@
             this.Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Password.Location = new System.Drawing.Point(347, 235);
             this.Password.Name = "Password";
+            this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(200, 21);
             this.Password.TabIndex = 2;
             this.Password.Text = "admine";
@@ -137,8 +138,6 @@
             // PwdView
             // 
             this.PwdView.AutoSize = true;
-            this.PwdView.Checked = true;
-            this.PwdView.CheckState = System.Windows.Forms.CheckState.Checked;
             this.PwdView.Location = new System.Drawing.Point(562, 237);
             this.PwdView.Name = "PwdView";
             this.PwdView.Size = new System.Drawing.Size(48, 16);

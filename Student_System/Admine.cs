@@ -84,10 +84,13 @@ namespace Student_System
         {
             if ((int)MessageBox.Show("确定修改", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
                 return;
-            //if (pdt.mysql.ChangeData(TabControl.SelectedTab.Name, string.Format("update {0} set password='{1}' where user='{2}';", TabControl.SelectedTab.Name, pwd.Text, user.Text)))
-            //{
-                //listviewset.ListviewChangeData(pwd.Text, dictionary[TabControl1.SelectedTab.Name]);
-            //}
+
+            string[] str_arraay = new string[] { User.Text, Password.Text, id.Text, name.Text, Sex.Text };
+       
+            if (pdt.mysql.ChangeData(TabControl.SelectedTab.Name, string.Format("update {0} set password='{1}',set id='{2}',set name='{3}',set sex='{4}',where user='{5}';", TabControl.SelectedTab.Name,str_arraay[1], str_arraay[2],str_arraay[3],str_arraay[4],str_arraay[0])))
+            {
+                listviewoper.ListviewChangeData(textboxdic, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
+            }
         }
 
         private void ListviewSelect(object sender, EventArgs e)
