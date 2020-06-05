@@ -20,6 +20,7 @@ namespace Student_System
             InitializeComponent();
         }
 
+        //RadioCheck选择事件
         private void Admine_CheckedChanged(object sender, EventArgs e)
         {
             if (Admine.Checked == true)
@@ -30,6 +31,7 @@ namespace Student_System
                 Entry_Type = "StudentLogin";
         }
 
+        //登入事件
         private void Entry_Click(object sender, EventArgs e)
         {
             Form form;
@@ -61,6 +63,7 @@ namespace Student_System
             }
         }
 
+        //密码显示事件
         private void PwdView_CheckedChanged(object sender, EventArgs e)
         {
             if (PwdView.Checked)

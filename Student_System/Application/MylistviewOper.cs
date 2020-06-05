@@ -73,7 +73,7 @@ namespace Student_System
             list.Items.Add(lvi);
         }
 
-        //这里也要修改
+        //这里也要修改，需要做到公用暂时先这样，靠传进来的数据去配置
         public override void ListviewChangeData(Dictionary<string,TextBox> dic, ListView list)
         {
             int i = 1;

@@ -174,8 +174,6 @@ namespace Student_System
         {
             myListview = new SorceListview();
             myTabcontrol.TabControl.Controls.Add(myTabPage.AddListview(myListview.GetAdmine(), "ClassAllData", "全体学生成绩"));
-            //myTabcontrol.TabControl.Controls.Add(myTabPage.AddListview(myListview.GetAdmine(), "studentlogin", "学生账号"));
-            //myTabcontrol.TabControl.Controls.Add(myTabPage.AddListview(myListview.GetAdmine(), "teacherlogin", "老师账号"));
             return myTabcontrol.TabControl;
         }
     }

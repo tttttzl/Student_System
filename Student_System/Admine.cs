@@ -13,10 +13,15 @@ namespace Student_System
     partial class Admine : Form
     { 
         Product pdt;
+        //TabControl一个页面一个
         TabControl TabControl;
+        //控件工厂
         ControlFactory factory;
+        //Listview操作
         MylistviewOper listviewoper;
+        //用于存储界面控件
         Dictionary<string, TextBox> textboxdic;
+        //用于搜索用的Index，用来查找Column
         int column_number = 1;
 
         public Admine(Product pdt)
@@ -30,8 +35,11 @@ namespace Student_System
             this.Controls.Add(TabControl);
             EevetBind();
             BindTextbox();
+            //进入界面后先加载一次
+            listviewoper.ListviewLoadData(TabControl.SelectedTab.Name, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
         }
 
+        //事件绑定
         public void EevetBind()
         {
             TabControl.SelectedIndexChanged += new System.EventHandler(this.Loading_Click);
@@ -42,6 +50,7 @@ namespace Student_System
             } 
         }
 
+        //绑定控件便于查找
         public void BindTextbox()
         {
             textboxdic.Add("User",User);
@@ -52,6 +61,7 @@ namespace Student_System
 
         }
 
+        //删除按钮事件
         private void Dele_Click(object sender, EventArgs e)
         {
             if ((int)MessageBox.Show("确定删除", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
@@ -59,16 +69,21 @@ namespace Student_System
 
             if (factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems.Count > 0)
             {
-                if (pdt.mysql.DeleSelectData(TabControl.SelectedTab.Name,factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems[0].SubItems[1].Text))
+                if (pdt.mysql.DeleSelectData(TabControl.SelectedTab.Name, factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems[0].SubItems[1].Text))
+                {
                     listviewoper.ListviewDeleteData(TabControl.SelectedTab.Name, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
+                    listviewoper.ListviewLoadData(TabControl.SelectedTab.Name, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
+                }
             }
         }
 
+        //刷新按钮事件
         private void Loading_Click(object sender, EventArgs e)
         {
             listviewoper.ListviewLoadData(TabControl.SelectedTab.Name,factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
         }
 
+        //添加按钮事件
         private void Add_Click(object sender, EventArgs e)
         {
             if ((int)MessageBox.Show("确定添加", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
@@ -80,6 +95,7 @@ namespace Student_System
             }
         }
 
+        //修改按钮事件
         private void Change_Click(object sender, EventArgs e)
         {
             if ((int)MessageBox.Show("确定修改", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != 1)
@@ -93,6 +109,7 @@ namespace Student_System
             }
         }
 
+        //Listview选择行触发事件
         private void ListviewSelect(object sender, EventArgs e)
         {
             if (factory.myTabPage.dictionary[TabControl.SelectedTab.Name].SelectedItems.Count > 0)
@@ -104,6 +121,7 @@ namespace Student_System
             }
         }
 
+        //搜索框触发事件
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             listviewoper.ListviewSearchData(SearchTextBox.Text,factory.myTabPage.dictionary[TabControl.SelectedTab.Name],column_number);
