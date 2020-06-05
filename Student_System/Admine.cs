@@ -87,7 +87,7 @@ namespace Student_System
 
             string[] str_arraay = new string[] { User.Text, Password.Text, id.Text, name.Text, Sex.Text };
        
-            if (pdt.mysql.ChangeData(TabControl.SelectedTab.Name, string.Format("update {0} set password='{1}',set id='{2}',set name='{3}',set sex='{4}',where user='{5}';", TabControl.SelectedTab.Name,str_arraay[1], str_arraay[2],str_arraay[3],str_arraay[4],str_arraay[0])))
+            if (pdt.mysql.ChangeData(TabControl.SelectedTab.Name, string.Format("update {0} set password='{1}',id='{2}',name='{3}',sex='{4}' where user='{5}'; ", TabControl.SelectedTab.Name,str_arraay[1], str_arraay[2],str_arraay[3],str_arraay[4],str_arraay[0])))
             {
                 listviewoper.ListviewChangeData(textboxdic, factory.myTabPage.dictionary[TabControl.SelectedTab.Name]);
             }

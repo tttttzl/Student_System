@@ -82,6 +82,7 @@ namespace Student_System
                 foreach(TextBox item in dic.Values)
                 {
                     list.SelectedItems[0].SubItems[i].Text = item.Text;
+                    i++;
                 }
             }
             else

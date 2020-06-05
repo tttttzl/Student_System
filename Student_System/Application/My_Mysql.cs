@@ -31,7 +31,7 @@ namespace Student_System
         {
             try
             {
-                String connetStr = "server=" + server + ";port=" + port + ";user=" + user + ";password=" + password + ";database=" + database + ";connection timeout='1200'";
+                String connetStr = "server=" + server + ";port=" + port + ";user=" + user + ";password=" + password + ";database=" + database + ";connection timeout='1200'; Charset=utf8";
                 conn = new MySqlConnection(connetStr);
                 conn.Open();
                 MessageBox.Show("连接成功", "连接提示");
